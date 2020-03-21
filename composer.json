@@ -1,0 +1,19 @@
+{
+    "name": "seek-x2y/yuou-sdk",
+    "description": "渝欧（宝妈时光）SDK",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "wmc",
+            "email": "php_wmc@sina.com"
+        }
+    ],
+    "require": {
+        "hanson/foundation-sdk": "^3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Seek\\YuouSDK\\": "src"
+        }
+    }
+}
