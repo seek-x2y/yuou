@@ -15,7 +15,7 @@ base on [foundation-sdk](https://github.com/HanSon/foundation-sdk)
 ## Installation
 
 ```
-composer require seek/yuou-sdk -vvv
+composer require seek-x2y/yuou-sdk -vvv
 ```
 
 ## Usage
