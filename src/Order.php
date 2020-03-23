@@ -1,8 +1,7 @@
 <?php
 
-namespace Seek\YuouSDK\Order;
+namespace Seek\YuouSDK;
 
-use Seek\YuouSDK\Api;
 
 /**
  * 渝欧中台系统

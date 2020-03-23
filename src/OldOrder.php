@@ -11,14 +11,14 @@ namespace Seek\YuouSDK;
 class OldOrder extends Api
 {
 
-    public function queryOrders(string $subjectCode, string $whCode, int $number)
+    public function queryOrders(string $subjectCode, string $whCode, int $number=10)
     {
         $params = [
             'subjectCode' => $subjectCode,
             'whCode' => $whCode,
             'number' => $number
         ];
-        return $this->request('GET', '/api/v2/platform/pullOrder', $params);
+        return $this->request('POST', '/api/v2/platform/pullOrder', $params);
     }
 
 

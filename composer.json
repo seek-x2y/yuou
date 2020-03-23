@@ -11,9 +11,17 @@
     "require": {
         "hanson/foundation-sdk": "^3.0"
     },
+    "require-dev": {
+        "phpunit/phpunit": "^8.0"
+    },
     "autoload": {
         "psr-4": {
-            "Seek\\YuouSDK\\": "src"
+            "Seek\\YuouSDK\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Seek\\YuouSDK\\Tests\\" : "tests/"
         }
     }
 }
