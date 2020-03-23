@@ -2,3 +2,4 @@
 /vendor
 /tests/Unit/yuou.log
 .phpunit.result.cache
+composer.lock
