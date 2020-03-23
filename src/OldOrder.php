@@ -5,6 +5,7 @@ namespace Seek\YuouSDK;
 
 /**
  * 渝欧老系统
+ * http://doc.xgqqg.com/docs/show/63
  * Class OldOrder
  * @package Seek\YuouSDK
  */
@@ -22,9 +23,14 @@ class OldOrder extends Api
     }
 
 
-    public function confirmOrder(string $orderNo)
+    /**
+     * 订单确认
+     * @param array $orderNos [{orderNo:123},{orderNo:456}]
+     * @return mixed
+     */
+    public function confirmOrder(array $orderNos)
     {
-        return $this->request('POST', '/api/v2/platform/confirmOrder', ['orderNo' => $orderNo]);
+        return $this->request('POST', '/api/v2/platform/confirmOrder', $orderNos);
     }
 
     public function logistics(array $infos)

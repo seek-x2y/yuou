@@ -16,12 +16,13 @@ class Api extends AbstractAPI
         $this->rootUrl = $rootUrl;
         $this->appKey = $appKey;
         $this->appSecret = $appSecret;
-        $this->time = time();
+        $this->time = date('Y-m-d H:i:s', time());
     }
 
     public function request(string $method, string $uri, array $params)
     {
         $http = $this->getHttp();
+        $params = json_encode($params);
         $http->addMiddleware($this->headerMiddleware([
             'Content-Type' => 'application/x-www-form-urlencoded',
             'APP-KEY' => $this->appKey,
@@ -29,7 +30,7 @@ class Api extends AbstractAPI
             'X-SIGNATURE' => $this->signature($method, $uri, $params),
         ]));
         $url = $this->rootUrl . $uri;
-        $response = $http->request($method, $url, $params);
+        $response = call_user_func_array([$http, $method], [$url, ['data' => $params]]);
 
         return json_decode(strval($response->getBody()), true);
     }
@@ -40,8 +41,9 @@ class Api extends AbstractAPI
      * @param string $params 请求参数JSON
      * @return string
      */
-    private function signature(string $method, string $uri, array $params)
+    private function signature(string $method, string $uri, string $params)
     {
-        return md5($method . "&" . $this->time . "&" . $uri . "&" . json_encode($params) . "&" . $this->appKey . "&" . $this->appSecret);
+        //var_dump($method . "&" . $this->time . "&" . $uri . "&" . $params . "&" . $this->appKey . "&" . $this->appSecret);
+        return md5($method . "&" . $this->time . "&" . $uri . "&" . $params . "&" . $this->appKey . "&" . $this->appSecret);
     }
 }

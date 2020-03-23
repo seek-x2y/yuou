@@ -5,12 +5,13 @@ namespace Seek\YuouSDK;
 
 /**
  * 渝欧中台系统
+ * http://doc.xgqqg.com/docs/show/381
  * Class Order
  * @package Seek\YuouSDK\Order
  */
 class Order extends Api
 {
-    public function queryOrders(string $isHang = 'false', string $customs = null, int $pageSize = 50)
+    public function queryOrders(string $isHang = 'false', string $customs = '', int $pageSize = 50)
     {
         $params = [
             'isHang' => $isHang,
