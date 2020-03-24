@@ -43,7 +43,6 @@ class Api extends AbstractAPI
      */
     private function signature(string $method, string $uri, string $params)
     {
-        //var_dump($method . "&" . $this->time . "&" . $uri . "&" . $params . "&" . $this->appKey . "&" . $this->appSecret);
         return md5($method . "&" . $this->time . "&" . $uri . "&" . $params . "&" . $this->appKey . "&" . $this->appSecret);
     }
 }

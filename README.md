@@ -1,11 +1,9 @@
 # YuouSDK
 渝欧SDK
 
-[旧系统Doc](http://doc.xgqqg.com/docs/show/63)
+[旧系统Doc](http://doc.xgqqg.com/docs/show/63) |[中台Doc](http://doc.xgqqg.com/docs/show/706)
 
-[中台Doc](http://doc.xgqqg.com/docs/show/706)
-
-base on [foundation-sdk](https://github.com/HanSon/foundation-sdk)
+Based on [foundation-sdk](https://github.com/HanSon/foundation-sdk)
 
 ## Requirement
 
@@ -41,7 +39,7 @@ $yuou = new \Seek\YuouSDK\YuouSDK([
 ]);
 
 // 获取订单
-$result = $yuou->request('/api/v2/platform/pullOrder', ['subjectCode' => 'xxx']);
+$result = $yuou->order->queryOrders();
 ```
 
 
