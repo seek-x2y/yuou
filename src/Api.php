@@ -11,7 +11,7 @@ class Api extends AbstractAPI
     private $appSecret;
     private $time;
 
-    public function __construct(string $appKey, string $appSecret, string $rootUrl)
+    public function __construct(string $appKey, string $appSecret, string $rootUrl, array $otherParams=[])
     {
         $this->rootUrl = $rootUrl;
         $this->appKey = $appKey;

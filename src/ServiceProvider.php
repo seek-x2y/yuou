@@ -6,6 +6,8 @@ namespace Seek\YuouSDK;
 
 use Pimple\Container;
 use Pimple\ServiceProviderInterface;
+use Seek\YuouSDK\Order\Order;
+use Seek\YuouSDK\Order\OldOrder;
 
 class ServiceProvider implements ServiceProviderInterface
 {
