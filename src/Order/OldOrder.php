@@ -3,7 +3,6 @@
 
 namespace Seek\YuouSDK\Order;
 
-use Pimple\Container;
 use Seek\YuouSDK\Api;
 use Seek\YuouSDK\YuouException;
 
@@ -16,20 +15,14 @@ use Seek\YuouSDK\YuouException;
 class OldOrder extends Api
 {
 
-    public function queryOrders(int $number=10)
+    public function queryOrders(string $subjectCode, string $whCode, int $number=10)
     {
-        $container = new Container();
-        $config = $container->getConfig();
-        if(isset($config['subjectCode']) && isset($config['whCode'])){
-            $params = [
-                'subjectCode' => $config['subjectCode'],
-                'whCode' => $config['whCode'],
-                'number' => $number
-            ];
-            return $this->request('POST', '/api/v2/platform/pullOrder', $params);
-        }else{
-            throw new YuouException('渝欧老系统订单拉取接口必需 主体编码（sujectCode）和仓库编码（whCode）字段');
-        }
+        $params = [
+            'subjectCode' => $subjectCode,
+            'whCode' => $whCode,
+            'number' => $number
+        ];
+        return $this->request('POST', '/api/v2/platform/pullOrder', $params);
     }
 
 
