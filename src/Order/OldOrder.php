@@ -16,14 +16,14 @@ use Seek\YuouSDK\YuouException;
 class OldOrder extends Api
 {
 
-    public function queryOrders(string $subjectCode, string $whCode, int $number=10)
+    public function queryOrders(int $number=10)
     {
         $container = new Container();
         $config = $container->getConfig();
         if(isset($config['subjectCode']) && isset($config['whCode'])){
             $params = [
-                'subjectCode' => $subjectCode,
-                'whCode' => $whCode,
+                'subjectCode' => $config['subjectCode'],
+                'whCode' => $config['whCode'],
                 'number' => $number
             ];
             return $this->request('POST', '/api/v2/platform/pullOrder', $params);
